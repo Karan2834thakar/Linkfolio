@@ -32,9 +32,11 @@ const CreatePortfolio = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:5000/api/portfolio", portfolioData);
+      // Use the Render backend URL for making the API request
+      const res = await axios.post("https://linkfolio.onrender.com/api/portfolio", portfolioData);
+      
       // After successful creation, navigate to their portfolio page
-      setPortfolioUrl(`http://localhost:5173/${res.data.username}`);
+      setPortfolioUrl(`https://linkfolio.onrender.com/${res.data.username}`);
       // Redirect to portfolio page
       navigate(`/${res.data.username}`);
     } catch (err) {

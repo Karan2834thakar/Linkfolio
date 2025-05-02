@@ -7,8 +7,12 @@ const PortfolioPage = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/portfolio/${username}`)
-      .then(res => setData(res.data))
+    // console.log(username)
+    axios.get(`https://linkfolio.onrender.com/api/portfolio/${username}`)
+      .then(res => {
+        // console.log("DATA : " + res.data)
+        setData(res.data)
+      })
       .catch(err => console.error("Error fetching data:", err));
   }, [username]);
 

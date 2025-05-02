@@ -3,6 +3,20 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const CreatePortfolio = () => {
+  // const [portfolioData, setPortfolioData] = useState({
+  //   name: "Karan",
+  //   username: "kk",
+  //   about: "asckbewlfwbleflw",
+  //   profileImage: "bsclwefwe",
+  //   skills: "h,h,h,h,h,h,h,h",
+  //   projects: [{ title: "xyz", description: "sdwtge5t", link: "dfwrgfe" }],
+  //   experience: [{ role: "wedwe", company: "swdwefw", duration: "4", description: "dfewghryhtyhjt yttyhtey" }],
+  //   email: "f@k.gmail.com",
+  //   phone: "",
+  //   location: "",
+  //   linkedin: "",
+  //   github: ""
+  // });
   const [portfolioData, setPortfolioData] = useState({
     name: "",
     username: "",
@@ -33,9 +47,12 @@ const CreatePortfolio = () => {
 
     try {
       // Use the Render backend URL for making the API request
+      // console.log("done ")
       const res = await axios.post("https://linkfolio.onrender.com/api/portfolio", portfolioData);
+      // const res = await axios.post("http://localhost:5000/api/portfolio", portfolioData);
       
       // After successful creation, navigate to their portfolio page
+      // console.log(res.data.username)
       setPortfolioUrl(`https://linkfolio.onrender.com/${res.data.username}`);
       // Redirect to portfolio page
       navigate(`/${res.data.username}`);
